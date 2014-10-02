@@ -1,0 +1,55 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=True %}
+{% bootstrap_messages %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'moment/moment.min.js' %}"></script>
+<script type="text/javascript" src="/static/dp/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/dp/daterangepicker-bs3.css"/>
+
+Hello, world. You're at the polls index.
+
+<div class="container">
+<div class="span10">
+<div class="well">
+
+<form class="form-horizontal" method="GET" action="getDate">
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label" for="selectdaterange">Select Date
+  Range:</label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i
+  class="icon-calendar"></i></span><input type="text"
+  name="selectdaterange" id="selectdaterange" style="width:175px" />
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+	    
+            </div>            
+         </div>
+      </div>
+
+<div>
+<script>
+$('#selectdaterange').daterangepicker().on('apply', function() {
+    var d = $(this).daterangepicker("getDate").val();
+    console.log(d);
+    });
+</script>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#selectdaterange').daterangepicker( { startDate: "11/5/1982",
+endDate: "11/15/1982" } );
+    $('#selectdaterange').val("11/5/1982" + " - " + "11/15/1982");
+});
+</script>
+
+
+
+
